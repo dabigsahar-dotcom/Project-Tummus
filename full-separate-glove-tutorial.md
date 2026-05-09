@@ -8,13 +8,11 @@ This tutorial is divided into 3 parts:
 
 # Part 1: Creating The Separate Glove Button
 
-This section assumes the Gardening Glove should always be available during normal gameplay. Unlock conditions will be covered later.
-
-
+This section of the tutorial will tell you how to add the Glove tool
 
 ## Step 1: Add the function declarations
 
-In `Lawn/Board.h`, near `DrawShovel` and `GetShovelButtonRect`, add:
+In `Lawn/Board.h` near `DrawShovel` and `GetShovelButtonRect` add:
 
 ```cpp
 void DrawGlove(Graphics* g);
@@ -29,7 +27,7 @@ This adds support for a second tool button alongside the shovel.
 
 ## Step 2: Add the helper function and button rect
 
-In `Lawn/Board.cpp`, near `GetShovelButtonRect()`, add:
+In `Lawn/Board.cpp` near `GetShovelButtonRect()` add:
 
 ```cpp
 static bool BoardShouldShowSeparateGlove(Board* theBoard)
