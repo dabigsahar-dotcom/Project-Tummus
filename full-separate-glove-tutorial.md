@@ -19,10 +19,7 @@ void DrawGlove(Graphics* g);
 Rect GetGloveButtonRect();
 ```
 
-### What this does
-
-This adds support for a second tool button alongside the shovel.
-
+These are just the functions we are going to use. 
 
 
 ## Step 2: Add the helper function and button rect
