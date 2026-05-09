@@ -6,13 +6,13 @@ This tutorial is divided into 3 parts:
 2. **Part 2** explains how to make the glove unlockable through Crazy Dave's Shop.
 3. **Part 3** provides a short conclusion and design notes.
 
----
+
 
 # Part 1: Creating The Separate Glove Button
 
 This section assumes the Gardening Glove should always be available during normal gameplay. Unlock conditions will be covered later.
 
----
+
 
 ## Step 1: Add the function declarations
 
@@ -27,7 +27,7 @@ Rect GetGloveButtonRect();
 
 This adds support for a second tool button alongside the shovel.
 
----
+
 
 ## Step 2: Add the helper function and button rect
 
@@ -54,7 +54,7 @@ Rect Board::GetGloveButtonRect()
 - `BoardShouldShowSeparateGlove(...)` determines whether the glove button should be visible.
 - `GetGloveButtonRect()` positions the glove beside the shovel button.
 
----
+ 
 
 ## Step 3: Draw the glove
 
@@ -79,7 +79,7 @@ void Board::DrawGlove(Graphics* g)
 
 This draws the Gardening Glove as a separate HUD tool using the same button background as the shovel.
 
----
+ 
 
 ## Step 4: Draw the glove in the board UI
 
@@ -102,7 +102,7 @@ if (BoardShouldShowSeparateGlove(this))
 
 This makes the glove appear during gameplay.
 
----
+ 
 
 ## Step 5: Make the glove clickable
 
@@ -121,7 +121,7 @@ if (BoardShouldShowSeparateGlove(this) && aGloveButtonRect.Contains(x, y) && Can
 
 This allows the board to recognize clicks on the glove button.
 
----
+ 
 
 ## Step 6: Add a tooltip
 
@@ -144,7 +144,7 @@ if (aHitResult.mObjectType == GameObjectType::OBJECT_TYPE_GLOVE && BoardShouldSh
 
 This adds a tooltip for the separate glove button.
 
----
+ 
 
 ## Step 7: Prevent duplicate glove rendering
 
@@ -174,7 +174,7 @@ Without this change, the glove would render twice:
 
 This prevents duplicate rendering.
 
----
+ 
 
 # Result of Part 1
 
@@ -189,13 +189,13 @@ At this point, the Gardening Glove:
 
 This creates a clean base implementation that can later support unlock systems or custom conditions.
 
----
+ 
 
 # Part 2: Making The Glove Unlockable
 
 Now that the glove works as a standalone feature, we can make it unlockable through Crazy Dave’s Shop.
 
----
+ 
 
 ## Step 1: Add the purchase check
 
@@ -215,7 +215,7 @@ static bool BoardShouldShowSeparateGlove(Board* theBoard)
 
 The glove now only appears if the player has purchased the Gardening Glove upgrade.
 
----
+ 
 
 ## Step 2: Reuse the existing store item
 
@@ -227,7 +227,7 @@ STORE_ITEM_GARDENING_GLOVE
 
 Because of this, no new shop item needs to be created. The tutorial simply reuses the existing purchase flag.
 
----
+ 
 
 ## Step 3: Update `CanUseGameObject(...)`
 
@@ -244,7 +244,7 @@ if (theGameObject == GameObjectType::OBJECT_TYPE_GLOVE)
 
 This keeps the board’s internal usability checks consistent with the unlock condition.
 
----
+ 
 
 ## Step 4: Leave the rest of the implementation unchanged
 
@@ -260,7 +260,7 @@ The only difference is the visibility condition.
 
 This separation keeps the system modular and easier to reuse in other mods.
 
----
+ 
 
 # Result of Part 2
 
@@ -279,7 +279,7 @@ If desired, the unlock condition can later be replaced with:
 - custom save flags
 - anything else
 
----
+ 
 
 # Part 3: Conclusion
 
