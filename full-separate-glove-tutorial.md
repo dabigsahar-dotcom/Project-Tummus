@@ -6,7 +6,7 @@ This tutorial is divided into 3 parts:
 2. **Making it unlockable**
 3. **Conclusion**
 
-# Part 1: Creating The Separate Glove Button
+# Adding the Glove # Creating The Glove
 
 This section of the tutorial will tell you how to add the Glove tool
 
@@ -87,11 +87,7 @@ if (BoardShouldShowSeparateGlove(this))
 {
     DrawGlove(g);
 }
-```
-
-### What this does
-
-This make it so that the game will actually draw the glove 
+``` 
  
 ## Step 5: Make the glove clickable
 
@@ -106,7 +102,7 @@ if (BoardShouldShowSeparateGlove(this) && aGloveButtonRect.Contains(x, y) && Can
 }
 ```
  
-## Step 6: Add a tooltip
+## Step 6: Add a tooltip (optional)
 
 In the tooltip section of `Lawn/Board.cpp` add:
 
@@ -143,7 +139,7 @@ else if (aTool == GameObjectType::OBJECT_TYPE_GLOVE)
 }
 ```
 
-# Part 2: Making The Glove Unlockable
+# Part 2: Making it unlockable (optional)
 
 Now that the glove works as a standalone feature, we can make it unlockable through Crazy Dave’s Shop.
 
@@ -179,9 +175,7 @@ if (theGameObject == GameObjectType::OBJECT_TYPE_GLOVE)
 ### What this does
 
 This keeps the board’s internal usability checks consistent with the unlock condition.
-Normally, I would say this but simplified, but I can't really find the best way to simplify it so yeah
- 
-# DONE yeah thats it for this Part
+Normally, I would say this but simplified, but I can't really find the best way to simplify it so done yeah thats it for this Part
 
 # Part 3: Conclusion
 I don't really have anything to say for this part. I just thought it'd be cool if I added a conclusion for now. 
