@@ -1,12 +1,10 @@
-# How To Add The Gardening Glove As A Separate Item
+# How To Add The Gardening Glove As A Separate Item #
 
 This tutorial is divided into 3 parts:
 
-1. **Part 1** explains how to add the Gardening Glove as its own in-level HUD item beside the shovel.
-2. **Part 2** explains how to make the glove unlockable through Crazy Dave's Shop.
-3. **Part 3** provides a short conclusion and design notes.
-
-
+1. **Adding the Glove** 
+2. **Making it unlockable**
+3. **Conclusion**
 
 # Part 1: Creating The Separate Glove Button
 
