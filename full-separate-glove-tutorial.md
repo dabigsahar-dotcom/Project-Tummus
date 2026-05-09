@@ -47,14 +47,14 @@ Rect Board::GetGloveButtonRect()
 
 ### What this does
 
-- `BoardShouldShowSeparateGlove(...)` determines whether the glove button should be visible.
-- `GetGloveButtonRect()` positions the glove beside the shovel button.
+- `BoardShouldShowSeparateGlove(...)` This tells the game when the glove shall appear. 
+- `GetGloveButtonRect()`  this tells the game where the glove should go. 
 
  
 
 ## Step 3: Draw the glove
 
-In `Lawn/Board.cpp`, near `DrawShovel(Graphics* g)`, add:
+In `Lawn/Board.cpp` near `DrawShovel(Graphics* g)` add:
 
 ```cpp
 void Board::DrawGlove(Graphics* g)
@@ -73,8 +73,7 @@ void Board::DrawGlove(Graphics* g)
 
 ### What this does
 
-This draws the Gardening Glove as a separate HUD tool using the same button background as the shovel.
-
+It draws the glove. 
  
 
 ## Step 4: Draw the glove in the board UI
@@ -96,13 +95,13 @@ if (BoardShouldShowSeparateGlove(this))
 
 ### What this does
 
-This makes the glove appear during gameplay.
+This makes the glove appear in gameplay.
 
  
 
 ## Step 5: Make the glove clickable
 
-In `Board::MouseHitTest(...)` inside `Lawn/Board.cpp`, add this directly after the shovel hit test:
+In `Board::MouseHitTest(...)` inside `Lawn/Board.cpp` add this directly after the shovel hit test:
 
 ```cpp
 Rect aGloveButtonRect = GetGloveButtonRect();
@@ -115,13 +114,11 @@ if (BoardShouldShowSeparateGlove(this) && aGloveButtonRect.Contains(x, y) && Can
 
 ### What this does
 
-This allows the board to recognize clicks on the glove button.
-
+It makes it so that the glove can be clickable. 
  
-
 ## Step 6: Add a tooltip
 
-In the tooltip section of `Lawn/Board.cpp`, add:
+In the tooltip section of `Lawn/Board.cpp` add:
 
 ```cpp
 if (aHitResult.mObjectType == GameObjectType::OBJECT_TYPE_GLOVE && BoardShouldShowSeparateGlove(this))
@@ -138,13 +135,11 @@ if (aHitResult.mObjectType == GameObjectType::OBJECT_TYPE_GLOVE && BoardShouldSh
 
 ### What this does
 
-This adds a tooltip for the separate glove button.
-
- 
+This adds a tooltip for the glove.
 
 ## Step 7: Prevent duplicate glove rendering
 
-In `DrawZenButtons(...)` inside `Lawn/Board.cpp`, find the glove case and replace it with:
+In `DrawZenButtons(...)` inside `Lawn/Board.cpp` find the glove case and replace it with:
 
 ```cpp
 else if (aTool == GameObjectType::OBJECT_TYPE_GLOVE)
@@ -164,28 +159,7 @@ else if (aTool == GameObjectType::OBJECT_TYPE_GLOVE)
 
 ### What this does
 
-Without this change, the glove would render twice:
-- once in the normal board HUD
-- once in the Zen Garden tool loop
-
-This prevents duplicate rendering.
-
- 
-
-# Result of Part 1
-
-At this point, the Gardening Glove:
-
-- has its own HUD button
-- appears beside the shovel
-- is clickable
-- has its own tooltip
-- reuses the existing glove cursor logic
-- no longer replaces the shovel
-
-This creates a clean base implementation that can later support unlock systems or custom conditions.
-
- 
+This is so that way it prevents itself from appearing twice. 
 
 # Part 2: Making The Glove Unlockable
 
@@ -209,21 +183,7 @@ static bool BoardShouldShowSeparateGlove(Board* theBoard)
 
 ### What this does
 
-The glove now only appears if the player has purchased the Gardening Glove upgrade.
-
- 
-
-## Step 2: Reuse the existing store item
-
-The game already includes the purchase entry:
-
-```cpp
-STORE_ITEM_GARDENING_GLOVE
-```
-
-Because of this, no new shop item needs to be created. The tutorial simply reuses the existing purchase flag.
-
- 
+Now the glove will appear if the player purchased it. 
 
 ## Step 3: Update `CanUseGameObject(...)`
 
@@ -239,59 +199,10 @@ if (theGameObject == GameObjectType::OBJECT_TYPE_GLOVE)
 ### What this does
 
 This keeps the board’s internal usability checks consistent with the unlock condition.
-
+Normally, I would say this but simplified, but I can't really find the best way to simplify it so yeah
  
-
-## Step 4: Leave the rest of the implementation unchanged
-
-The remaining code from Part 1 should stay exactly the same:
-
-- `DrawGlove(...)`
-- `GetGloveButtonRect()`
-- `MouseHitTest(...)`
-- tooltip logic
-- cursor handling
-
-The only difference is the visibility condition.
-
-This separation keeps the system modular and easier to reuse in other mods.
-
- 
-
-# Result of Part 2
-
-The Gardening Glove now behaves exactly like before, except it only appears after purchase.
-
-This design keeps the feature modular:
-
-- **Part 1** creates the glove system
-- **Part 2** adds one possible unlock method
-
-If desired, the unlock condition can later be replaced with:
-- level progression
-- achievements
-- challenge rewards
-- configuration files
-- custom save flags
-- anything else
-
- 
+# DONE yeah thats it for this Part
 
 # Part 3: Conclusion
+I don't really have anything to say for this part. I just thought it'd be cool if I added a conclusion for now. 
 
-The cleanest way to implement features like the Gardening Glove is to separate the system itself from its unlock conditions.
-
-First:
-- create the feature
-- draw it
-- make it functional
-- connect it to existing game logic
-
-Then:
-- decide how the player gains access to it
-
-This approach keeps the code reusable, modular, and easier to maintain across different mods.
-
-If a project does not need Crazy Dave’s Shop integration, Part 1 alone is enough.
-
-If shop progression is desired, continue to Part 2.
