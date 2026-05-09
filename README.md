@@ -1,6 +1,7 @@
 # Project-Tummus
 This GitHub repository will have a bunch of tutorials for Plants vs Zombies modding (DECOMP).
- This document will contain tons of information, such as adding new projectiles, new plants, zombies, and even more. 
+
+This document will contain tons of information, such as adding new projectiles, new plants, zombies, and even more. 
 
 
 Zombie Planed Tutorials 
@@ -18,6 +19,7 @@ Plant Planed Tutorials
   2.How to add new abilities 
   
 UI Planed Tutorials 
+
   1.How to add glove item
   
   2.How to add more items
