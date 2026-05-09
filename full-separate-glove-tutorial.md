@@ -6,7 +6,7 @@ This tutorial is divided into 3 parts:
 2. **Making it unlockable**
 3. **Conclusion**
 
-# Adding the Glove # Creating The Glove
+# Adding the Glove
 
 This section of the tutorial will tell you how to add the Glove tool
 
