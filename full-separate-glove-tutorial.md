@@ -70,10 +70,9 @@ void Board::DrawGlove(Graphics* g)
 
 ### What this does
 
-It draws the glove. 
+It makes it so that when this function is called, it will draw the glove. 
  
-
-## Step 4: Draw the glove in the board UI
+## Step 4: use the draw glove function. 
 
 In the board drawing section of `Lawn/Board.cpp`, directly after:
 
@@ -92,10 +91,8 @@ if (BoardShouldShowSeparateGlove(this))
 
 ### What this does
 
-This makes the glove appear in gameplay.
-
+This make it so that the game will actually draw the glove 
  
-
 ## Step 5: Make the glove clickable
 
 In `Board::MouseHitTest(...)` inside `Lawn/Board.cpp` add this directly after the shovel hit test:
@@ -108,10 +105,6 @@ if (BoardShouldShowSeparateGlove(this) && aGloveButtonRect.Contains(x, y) && Can
     return true;
 }
 ```
-
-### What this does
-
-It makes it so that the glove can be clickable. 
  
 ## Step 6: Add a tooltip
 
@@ -129,10 +122,6 @@ if (aHitResult.mObjectType == GameObjectType::OBJECT_TYPE_GLOVE && BoardShouldSh
     return;
 }
 ```
-
-### What this does
-
-This adds a tooltip for the glove.
 
 ## Step 7: Prevent duplicate glove rendering
 
@@ -154,15 +143,9 @@ else if (aTool == GameObjectType::OBJECT_TYPE_GLOVE)
 }
 ```
 
-### What this does
-
-This is so that way it prevents itself from appearing twice. 
-
 # Part 2: Making The Glove Unlockable
 
 Now that the glove works as a standalone feature, we can make it unlockable through Crazy Dave’s Shop.
-
- 
 
 ## Step 1: Add the purchase check
 
