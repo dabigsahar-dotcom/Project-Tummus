@@ -34,9 +34,7 @@ This document will contain tons of information, such as adding new projectiles, 
   3.How to add new animations 
 
   4.How to add cut scenes (not guaranteed to have a (tutorial)
-
-
-
   
   5.How to add grid items
+  
   6.How to add special world gimmicks 
