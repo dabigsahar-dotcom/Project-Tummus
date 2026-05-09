@@ -4,7 +4,7 @@ This GitHub repository will have a bunch of tutorials for Plants vs Zombies modd
 This document will contain tons of information, such as adding new projectiles, new plants, zombies, and even more. 
 
 
- # Zombie Planed Tutorials #
+ # Zombie Planed Tutorials # 🧟‍♂️
 
   1.How to add variants 
 
@@ -12,13 +12,13 @@ This document will contain tons of information, such as adding new projectiles, 
   
   3.How to give new abilities
   
-# Plant Planed Tutorials #
+# Plant Planed Tutorials # 🌱
 
   1.How to add new plants
   
   2.How to add new abilities 
   
-# UI Planed Tutorials #
+# UI Planed Tutorials # 📱
 
   1.How to add glove item
   
