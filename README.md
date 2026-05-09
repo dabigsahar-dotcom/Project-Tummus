@@ -1,3 +1,4 @@
 # Project-Tummus
 This GitHub repository will have a bunch of tutorials for Plants vs Zombies modding (DECOMP).
- Such tutorials will tell you how to edit plant behaviors, zombie behavior, how to add new worlds, how to edit UI elements, and more. 
+ This document will contain tons of information, such as adding new projectiles, new plants, zombies, and even more. 
+ 
